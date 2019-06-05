@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 875346659}
   - component: {fileID: 875346658}
   m_Layer: 0
-  m_Name: HandColection
+  m_Name: HandColection (script)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,6 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9f94eb169225449dfd1b9c133b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameDone: 0
+  PlayerWon: 0
   t: 0
   desiredY: 0
   medusaGo: {fileID: 168741941}

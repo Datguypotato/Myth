@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Medusa : MonoBehaviour
+/*this is the scripts take care of everything from medusa related*/
+public class Medusa : MiniGame
 {
     [Header("Players")]
     public float t;
@@ -14,14 +15,17 @@ public class Medusa : MonoBehaviour
     public float lookatTime;
 
     float playerlookatTime;
-    bool medusaLooking;
+    public bool medusaLooking;
 
     public Text tapText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.FindObjectOfType<GameManager>();
+
+        lookatTime = Random.Range(2, 6) + Time.time;
+        playerlookatTime = lookatTime - 1;
     }
 
     // Update is called once per frame
@@ -39,33 +43,52 @@ public class Medusa : MonoBehaviour
             t -= Time.deltaTime * 15;
         }
 
-
-
         t = Mathf.Clamp(t, 0, 1);
         desiredY = Mathf.Lerp(0.7f, 1.2f, t);
         transform.position = new Vector3(transform.position.x, desiredY, -9);
         #endregion
 
         #region medusa
-        if (lookatTime < Time.time)
+        if (lookatTime < Time.time && !gameDone)
         {
-            lookatTime = Random.Range(2, 6) + Time.time;
-            playerlookatTime = lookatTime - 1;
             StartCoroutine(BlinkRed());
-            Debug.Log("LookatTime is smaller than time");
+            //Debug.Log("LookatTime is smaller than time");
         }
-        #endregion
 
         if(playerlookatTime < Time.time)
         {
-            tapText.text = "Press space!";
+            tapText.text = "Tap the screen!";
         }
         else
         {
             tapText.text = "";
         }
+
+        #endregion
+
+        #region Win or lose check
+        //lose
+        if (!medusaLooking && t > .8 && playerlookatTime > Time.time || medusaLooking && t < .8)
+        {
+            Debug.Log("you lost");
+            if(gm != null)
+            {
+                gm.DG(false);
+            }
+        }
+
+        //win
+        if (t > .8 && medusaLooking)
+        {
+            if(gm != null)
+            {
+                gm.DG(true);
+            }
+        }
+        #endregion
     }
 
+    //TODO Make it so the IEnumerator change the text
     IEnumerator BlinkRed()
     {
         medusaLooking = true;
@@ -74,5 +97,6 @@ public class Medusa : MonoBehaviour
         yield return new WaitForSeconds(1);
         rend.material.color = Color.green;
         medusaLooking = false;
+        tapText.text = "";
     }
 }
