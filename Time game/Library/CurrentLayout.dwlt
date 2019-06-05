@@ -21,7 +21,11 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
+<<<<<<< Updated upstream
   m_MinSize: {x: 950, y: 300}
+=======
+  m_MinSize: {x: 950, y: 548}
+>>>>>>> Stashed changes
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -140,7 +144,11 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 348}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 93
+=======
+  controlID: 30
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +228,11 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 53
+=======
+  controlID: 73
+>>>>>>> Stashed changes
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -610,9 +622,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
       m_SelectedIDs: c2e8ffff
       m_LastClickedID: -5950
       m_ExpandedIDs: 60faffffd6fbfffff00b0000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3cf9ffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -711,9 +729,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 5c090000
     m_LastClickedID: 2396
     m_ExpandedIDs: 000000005c090000840b000000ca9a3b
+=======
+    m_SelectedIDs: 582a0000
+    m_LastClickedID: 10840
+    m_ExpandedIDs: 00000000582a000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -741,7 +765,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 000000005c090000840b0000
+=======
+    m_ExpandedIDs: 00000000582a0000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -768,19 +796,32 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< Updated upstream
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 9cc30100a485f9ff0a84f9ffd082f9ff722400009a2400008e240000ca0600008606000032240000ba240000aa24000084240000382400000a2a00004a280000e22d0000a82700009c270000da2b0000462800007628000000000000a8600000b6240000b4240000003400003c320000182d00004e2f00003230000008ea00001aea000028cd000038cd000048cd00004c2d00007440000062400000603400001a2c000050c50100ea32000094360000daf40100882f00009e3100000a480000c0460000d2460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: ZeusMinions
       m_OriginalName: ZeusMinions
+=======
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: 9cc30100a485f9ff0a84f9ffd082f9ff722400009a2400008e240000ca0600008606000032240000ba240000aa24000084240000382400000a2a00004a280000e22d0000a82700009c270000da2b0000462800007628000000000000a8600000b6240000b4240000003400003c320000182d00004e2f00003230000008ea00001aea000028cd000038cd000048cd00004c2d00007440000062400000603400001a2c000050c50100ea32000094360000daf40100882f00009e3100000a480000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+>>>>>>> Stashed changes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
+<<<<<<< Updated upstream
       m_UserData: 10518
+=======
+      m_UserData: 0
+>>>>>>> Stashed changes
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 11
