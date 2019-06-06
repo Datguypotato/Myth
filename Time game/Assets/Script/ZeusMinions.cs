@@ -38,7 +38,7 @@ public class ZeusMinions : MonoBehaviour
     {
         if (other.CompareTag("Lightning"))
         {
-            Debug.Log("I fucking died");
+            Destroy(this.gameObject);
         }
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-/*this is the scripts take care of everything from medusa related*/
+/* summary
+ * this is the scripts take care of everything from medusa related
+ */
 public class Medusa : MiniGame
 {
     [Header("Players")]
@@ -22,7 +24,7 @@ public class Medusa : MiniGame
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        GetGm();
 
         lookatTime = Random.Range(2, 6) + Time.time;
         playerlookatTime = lookatTime - 1;

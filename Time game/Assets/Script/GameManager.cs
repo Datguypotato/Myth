@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public int score;
     public int lives;
 
-    bool startGame = true;
+    bool startGame;
     Scene activeLevel;
+    Canvas mainmenuCanvas;
 
     public static GameManager instance;
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainmenuCanvas = GameObject.FindObjectOfType<Canvas>();
     }
 
     // Update is called once per frame
@@ -39,7 +40,8 @@ public class GameManager : MonoBehaviour
     {
         if (startGame && SceneManager.sceneCount == 1)
         {
-            SceneManager.LoadSceneAsync(sceneNames[0], LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(sceneNames[1], LoadSceneMode.Additive);
+            mainmenuCanvas.gameObject.SetActive(false);
         }
     }
     //donegame
@@ -54,11 +56,11 @@ public class GameManager : MonoBehaviour
             lives--;
         }
 
-        SceneManager.UnloadSceneAsync(sceneNames[0]);
-        
+        SceneManager.UnloadSceneAsync(sceneNames[1]);
+        mainmenuCanvas.gameObject.SetActive(true);
 
     }
-    //startgame
+    //startgame for button
     public void SG()
     {
         startGame = true;
