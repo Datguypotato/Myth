@@ -21,6 +21,8 @@ public class Medusa : MiniGame
 
     public Text tapText;
 
+    float lerpMultiply = 15;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,61 +35,52 @@ public class Medusa : MiniGame
     // Update is called once per frame
     void Update()
     {
-        
-        #region player
-        //putting hands up
-        if (Input.GetKey(KeyCode.Space))
+        if (!gameDone)
         {
-            t += Time.deltaTime * 15;
+#if UNITY_EDITOR
+
+            #region player
+            //putting hands up
+            if (Input.GetKey(KeyCode.Space))
+            {
+                t += Time.deltaTime * lerpMultiply;
+            }
+            else
+            {
+                t -= Time.deltaTime * lerpMultiply;
+            }
+
+            t = Mathf.Clamp(t, 0, 1);
+            desiredY = Mathf.Lerp(0.7f, 1.2f, t);
+            transform.position = new Vector3(transform.position.x, desiredY, -9);
+            #endregion
+
+            MedusaControl();
+
+            WinCheck();
+#endif
+
+#if UNITY_IOS
+            #region Player
+        if (Input.touchCount > 0)
+        {
+            t += Time.deltaTime * lerpMultiply;
         }
         else
         {
-            t -= Time.deltaTime * 15;
+            t += Time.deltaTime * lerpMultiply;
         }
 
         t = Mathf.Clamp(t, 0, 1);
         desiredY = Mathf.Lerp(0.7f, 1.2f, t);
         transform.position = new Vector3(transform.position.x, desiredY, -9);
-        #endregion
+            #endregion
 
-        #region medusa
-        if (lookatTime < Time.time && !gameDone)
-        {
-            StartCoroutine(BlinkRed());
-            //Debug.Log("LookatTime is smaller than time");
-        }
+        MedusaControl();
 
-        if(playerlookatTime < Time.time)
-        {
-            tapText.text = "Tap the screen!";
+        WinCheck();
+#endif
         }
-        else
-        {
-            tapText.text = "";
-        }
-
-        #endregion
-
-        #region Win or lose check
-        //lose
-        if (!medusaLooking && t > .8 && playerlookatTime > Time.time || medusaLooking && t < .8)
-        {
-            Debug.Log("you lost");
-            if(gm != null)
-            {
-                gm.DG(false);
-            }
-        }
-
-        //win
-        if (t > .8 && medusaLooking)
-        {
-            if(gm != null)
-            {
-                gm.DG(true);
-            }
-        }
-        #endregion
     }
 
     //TODO Make it so the IEnumerator change the text
@@ -100,5 +93,46 @@ public class Medusa : MiniGame
         rend.material.color = Color.green;
         medusaLooking = false;
         tapText.text = "";
+    }
+
+    void MedusaControl()
+    {
+        if (lookatTime < Time.time && !gameDone)
+        {
+            StartCoroutine(BlinkRed());
+            //Debug.Log("LookatTime is smaller than time");
+        }
+
+        if (playerlookatTime < Time.time)
+        {
+            tapText.text = "Tap the screen!";
+        }
+        else
+        {
+            tapText.text = "";
+        }
+    }
+
+    void WinCheck()
+    {
+        //lose
+        if (!medusaLooking && t > .8 && playerlookatTime > Time.time || medusaLooking && t < .8)
+        {
+            Debug.Log("you lost");
+            if (gm != null)
+            {
+                gm.DG(false);
+            }
+        }
+
+        //win
+        if (t > .8 && medusaLooking)
+        {
+            Debug.Log("you won");
+            if (gm != null)
+            {
+                gm.DG(true);
+            }
+        }
     }
 }

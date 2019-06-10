@@ -26,6 +26,7 @@ public class ZeusPower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0) && lightningCooldown < Time.time)
         {
             RaycastHit hit;
@@ -34,7 +35,7 @@ public class ZeusPower : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 20f))
             {
-                if(hit.collider != null)
+                if (hit.collider != null)
                 {
                     GameObject temp = Instantiate(thunderPrefab, hit.point, transform.rotation);
                     Destroy(temp, .2f);
@@ -43,7 +44,12 @@ public class ZeusPower : MonoBehaviour
                 }
             }
         }
+#endif
 
-        Debug.DrawRay(transform.position, Input.mousePosition, Color.black);
+        //if(Input.GetTouch(0) > 1)
+
+#if UNITY_IOS
+        
+#endif
     }
 }

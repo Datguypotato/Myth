@@ -25,20 +25,22 @@ public class ZeusGameManager : MiniGame
     {
         if (!gameDone)
         {
-            if(GameObject.FindObjectOfType<ZeusMinions>() == null)
+#if UNITY_EDITOR
+            if (GameObject.FindObjectOfType<ZeusMinions>() == null)
             {
-                if(gm!=null)
+                if (gm != null)
                     gm.DG(true);
                 gameDone = true;
                 Debug.Log("You won");
             }
-            else if(timeTillEnd < Time.time)
+            else if (timeTillEnd < Time.time)
             {
-                if(gm!=null)
+                if (gm != null)
                     gm.DG(false);
                 gameDone = true;
                 Debug.Log("You lost");
             }
+#endif
         }
     }
 
