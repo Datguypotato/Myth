@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public int lives;
 
-    public GameObject[] livesGo;
+    public List<GameObject> livesGo;
+    public Sprite spriteBoom;
 
     bool startGame;
     Scene activeLevel;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         mainmenuCanvas = GameObject.FindObjectOfType<Canvas>();
 
-        
+
     }
 
     // Update is called once per frame
@@ -59,6 +60,11 @@ public class GameManager : MonoBehaviour
         if (minigamescript != null && minigamescript.gameDone)
         {
             DG(minigamescript.playerWin);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine(LoseLife());
         }
     }
     //donegame
@@ -82,5 +88,26 @@ public class GameManager : MonoBehaviour
     public void SG()
     {
         startGame = true;
+    }
+
+    IEnumerator LoseLife()
+    {
+        for (int i = 0; i < livesGo.Count; i++)
+        {
+            livesGo[i].SetActive(true);
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        lives--;
+        SpriteRenderer rend = livesGo[lives].GetComponent<SpriteRenderer>();
+        rend.sprite = spriteBoom;
+
+        yield return new WaitForSeconds(1);
+        livesGo.RemoveAt(1);
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < livesGo.Count; i++)
+        {
+            livesGo[i].SetActive(false);
+        }
     }
 }
