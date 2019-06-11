@@ -26,7 +26,7 @@ public class Medusa : MiniGame
     // Start is called before the first frame update
     void Start()
     {
-        GetGm();
+        //GetGm();
 
         lookatTime = Random.Range(2, 6) + Time.time;
         playerlookatTime = lookatTime - 1;
@@ -115,24 +115,17 @@ public class Medusa : MiniGame
 
     void WinCheck()
     {
+
         //lose
         if (!medusaLooking && t > .8 && playerlookatTime > Time.time || medusaLooking && t < .8)
         {
-            Debug.Log("you lost");
-            if (gm != null)
-            {
-                gm.DG(false);
-            }
+            Lose();
         }
 
         //win
         if (t > .8 && medusaLooking)
         {
-            Debug.Log("you won");
-            if (gm != null)
-            {
-                gm.DG(true);
-            }
+            Win();
         }
     }
 }

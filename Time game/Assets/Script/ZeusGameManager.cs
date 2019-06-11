@@ -11,7 +11,7 @@ public class ZeusGameManager : MiniGame
     // Start is called before the first frame update
     void Start()
     {
-        GetGm();
+        //GetGm();
 
         for (int i = 0; i < amountMinions; i++)
         {
@@ -26,19 +26,15 @@ public class ZeusGameManager : MiniGame
         if (!gameDone)
         {
 #if UNITY_EDITOR
+            //player win
             if (GameObject.FindObjectOfType<ZeusMinions>() == null)
             {
-                if (gm != null)
-                    gm.DG(true);
-                gameDone = true;
-                Debug.Log("You won");
+                Win();
             }
+            //playerlost
             else if (timeTillEnd < Time.time)
             {
-                if (gm != null)
-                    gm.DG(false);
-                gameDone = true;
-                Debug.Log("You lost");
+                Lose();
             }
 #endif
         }

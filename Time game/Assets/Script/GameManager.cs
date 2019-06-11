@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public MiniGame minigamescript;
+
     public string[] sceneNames;
     public bool gameDone;
     public int score;
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         mainmenuCanvas = GameObject.FindObjectOfType<Canvas>();
+
+        
     }
 
     // Update is called once per frame
@@ -42,6 +47,16 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(sceneNames[1], LoadSceneMode.Additive);
             mainmenuCanvas.gameObject.SetActive(false);
+        }
+
+        if(minigamescript == null)
+        {
+            minigamescript = GameObject.FindObjectOfType<MiniGame>();
+        }
+
+        if (minigamescript != null && minigamescript.gameDone)
+        {
+            DG(minigamescript.playerWin);
         }
     }
     //donegame
@@ -56,6 +71,7 @@ public class GameManager : MonoBehaviour
             lives--;
         }
 
+        minigamescript = null;
         SceneManager.UnloadSceneAsync(sceneNames[1]);
         mainmenuCanvas.gameObject.SetActive(true);
 

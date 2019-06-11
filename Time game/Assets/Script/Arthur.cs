@@ -6,30 +6,47 @@ public class Arthur : MiniGame
 {
     public float progress;
 
-    //float desiredProgress;
-    //bool startLerp;
+    Rigidbody rb;
+    Camera cam;
     Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetGm();
+        //GetGm();
         Invoke("Lose", timeTillEnd);
+        cam = GameObject.FindObjectOfType<Camera>();
 
-
-        anim = Camera.main.GetComponent<Animator>();
+        rb = cam.GetComponent<Rigidbody>();
+        anim = cam.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
 #if UNITY_EDITOR
-        if (!gameDone && Input.GetKeyDown(KeyCode.Space))
+        if (!gameDone)
         {
-            progress += 0.05f;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                progress += 0.05f;
+            }
+            else
+            {
+                progress -= Time.deltaTime / 10;
+            }
+
+            anim.SetFloat("AnimationTime", progress);
+            Mathf.Clamp(progress, 0, 1);
         }
-        anim.SetFloat("AnimationTime", progress);
-        Mathf.Clamp(progress, 0, 1);
+        else
+        {
+            //look at arthur
+            cam.transform.LookAt(gameObject.transform);
+
+            anim.enabled = false;
+            rb.useGravity = true;
+        }
 
 #endif
 
@@ -37,18 +54,14 @@ public class Arthur : MiniGame
         //if(Input.GetTouch())
 //#endif
 
-        progress -= Time.deltaTime / 10;
+        
         
         if(progress > 1)
         {
-            Debug.Log("You won");
-            gameDone = true;
+            Win();
         }
     }
 
     //called by start
-    void Lose()
-    {
-        Debug.Log("You lost");
-    }
+
 }
