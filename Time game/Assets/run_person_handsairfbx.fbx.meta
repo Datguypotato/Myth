@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 72c133691a0eff1479a364ff70b42393
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: hig_poly_person:belly_bone
+    100002: hig_poly_person:character_prefab_locator
+    100004: hig_poly_person:character_prefab_mesh
+    100006: hig_poly_person:chest_under_bone
+    100008: hig_poly_person:chest_upper_bone
+    100010: hig_poly_person:crotch_bone
+    100012: hig_poly_person:head_bone
+    100014: hig_poly_person:L_elbow_bone
+    100016: hig_poly_person:L_fingertip_bone
+    100018: hig_poly_person:L_foot_bone
+    100020: hig_poly_person:L_hip_bone
+    100022: hig_poly_person:L_knee_bone
+    100024: hig_poly_person:L_shoulder_bone
+    100026: hig_poly_person:L_toe_bone
+    100028: hig_poly_person:L_wrist_bone
+    100030: hig_poly_person:neck_under_bone
+    100032: hig_poly_person:neck_upper_bone
+    100034: hig_poly_person:R_elbow_bone
+    100036: hig_poly_person:R_fingertip_bone
+    100038: hig_poly_person:R_foot_bone
+    100040: hig_poly_person:R_hip_bone
+    100042: hig_poly_person:R_knee_bone
+    100044: hig_poly_person:R_shoulder_bone
+    100046: hig_poly_person:R_toe_bone
+    100048: hig_poly_person:R_wrist_bone
+    100050: //RootNode
+    400000: hig_poly_person:belly_bone
+    400002: hig_poly_person:character_prefab_locator
+    400004: hig_poly_person:character_prefab_mesh
+    400006: hig_poly_person:chest_under_bone
+    400008: hig_poly_person:chest_upper_bone
+    400010: hig_poly_person:crotch_bone
+    400012: hig_poly_person:head_bone
+    400014: hig_poly_person:L_elbow_bone
+    400016: hig_poly_person:L_fingertip_bone
+    400018: hig_poly_person:L_foot_bone
+    400020: hig_poly_person:L_hip_bone
+    400022: hig_poly_person:L_knee_bone
+    400024: hig_poly_person:L_shoulder_bone
+    400026: hig_poly_person:L_toe_bone
+    400028: hig_poly_person:L_wrist_bone
+    400030: hig_poly_person:neck_under_bone
+    400032: hig_poly_person:neck_upper_bone
+    400034: hig_poly_person:R_elbow_bone
+    400036: hig_poly_person:R_fingertip_bone
+    400038: hig_poly_person:R_foot_bone
+    400040: hig_poly_person:R_hip_bone
+    400042: hig_poly_person:R_knee_bone
+    400044: hig_poly_person:R_shoulder_bone
+    400046: hig_poly_person:R_toe_bone
+    400048: hig_poly_person:R_wrist_bone
+    400050: //RootNode
+    2100000: lambert1
+    4300000: hig_poly_person:character_prefab_mesh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: hig_poly_person:character_prefab_mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

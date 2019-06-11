@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public int lives;
 
+    public GameObject[] livesGo;
+
     bool startGame;
     Scene activeLevel;
     Canvas mainmenuCanvas;
