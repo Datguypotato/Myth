@@ -40,8 +40,8 @@ public class ZeusPower : MonoBehaviour
                 {
                     Vector3 offset = new Vector3(0, 1, 0);
 
-                    GameObject temp = Instantiate(thunderPrefab, hit.point + offset, transform.rotation);
-                    GameObject hitTemp = Instantiate(thunderHit, hit.point + offset, transform.rotation);
+                    GameObject temp = Instantiate(thunderPrefab, hit.point + offset, new Quaternion(0, 0, 0, 0));
+                    GameObject hitTemp = Instantiate(thunderHit, hit.point + offset, new Quaternion(0, 0, 0, 0));
 
                     Destroy(temp, .2f);
                     Destroy(hitTemp, 1f);
