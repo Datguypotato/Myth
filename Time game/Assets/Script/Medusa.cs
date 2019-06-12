@@ -79,6 +79,7 @@ public class Medusa : MiniGame
         MedusaControl();
 
         WinCheck();
+
 #endif
         }
     }
@@ -86,10 +87,12 @@ public class Medusa : MiniGame
     //TODO Make it so the IEnumerator change the text
     IEnumerator BlinkRed()
     {
+        //setup for player
         medusaLooking = true;
         Renderer rend = medusaGo.GetComponent<Renderer>();
         rend.material.color = Color.red;
         yield return new WaitForSeconds(1);
+        //meduslooking
         rend.material.color = Color.green;
         medusaLooking = false;
         tapText.text = "";

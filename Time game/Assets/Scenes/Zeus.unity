@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35290325, g: 0.5736727, b: 0.8686616, a: 1}
+  m_IndirectSpecularColor: {r: 0.35280457, g: 0.57362026, b: 0.8686662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -675,7 +675,7 @@ MonoBehaviour:
   gameDone: 0
   playerWin: 0
   timeTillEnd: 50
-  MinionsPrefab: {fileID: 6039585794078853390, guid: c1e609f93c475ab4780bd05d7b115f7b,
+  MinionsPrefab: {fileID: 8546354614177109490, guid: fa19735b8a04924458c36c5cc729c00a,
     type: 3}
   amountMinions: 5
 --- !u!4 &1387104108

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public static GameManager instance;
     public MiniGame minigamescript;
 
     public string[] sceneNames;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     Scene activeLevel;
     Canvas mainmenuCanvas;
 
-    public static GameManager instance;
+
 
     void Awake()
     {
@@ -92,19 +92,23 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoseLife()
     {
+        //show all lives left
         for (int i = 0; i < livesGo.Count; i++)
         {
             livesGo[i].SetActive(true);
         }
         yield return new WaitForSeconds(0.5f);
-
+        //change sprite to losing health
         lives--;
         SpriteRenderer rend = livesGo[lives].GetComponent<SpriteRenderer>();
         rend.sprite = spriteBoom;
 
         yield return new WaitForSeconds(1);
-        livesGo.RemoveAt(1);
+        //actually lose health
+        livesGo[lives].GetComponent<SpriteRenderer>().sprite = null;
+        livesGo.Remove(livesGo[lives]);
         yield return new WaitForSeconds(0.5f);
+        //hide all lives left
         for (int i = 0; i < livesGo.Count; i++)
         {
             livesGo[i].SetActive(false);
