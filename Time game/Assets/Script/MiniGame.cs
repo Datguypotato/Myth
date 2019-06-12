@@ -11,15 +11,6 @@ public class MiniGame : MonoBehaviour
     [Tooltip("This is in seconds")]
     public float timeTillEnd;
 
-    //public void GetGm()
-    //{
-    //    gm = gm = GameObject.FindObjectOfType<GameManager>();
-    //    if(gm == null)
-    //    {
-    //        Debug.Log("There is no game manager in the scene");
-    //    }
-    //}
-
     protected void Win()
     {
         gameDone = true;
