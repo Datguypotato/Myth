@@ -18,13 +18,6 @@ public class ZeusPower : MonoBehaviour
 
     float lightningCooldown;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +35,8 @@ public class ZeusPower : MonoBehaviour
 
                     GameObject temp = Instantiate(thunderPrefab, hit.point + offset, new Quaternion(0, 0, 0, 0));
                     GameObject hitTemp = Instantiate(thunderHit, hit.point + offset, new Quaternion(0, 0, 0, 0));
+
+                    hitTemp.transform.eulerAngles = new Vector3(90, 0, 0);
 
                     Destroy(temp, .2f);
                     Destroy(hitTemp, 1f);

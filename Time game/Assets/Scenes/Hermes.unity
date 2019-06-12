@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd70dbc3dfad9f94ebe21a66356deae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationint: 1
+  rotationint: 3
   rotationMultiplyer: 10
 --- !u!1 &2103643689
 GameObject:

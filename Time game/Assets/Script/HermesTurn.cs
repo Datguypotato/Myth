@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HermesTurn : MonoBehaviour
 {
-    [Range(0, 4)]
+    [Range(0, 3)]
     public int rotationint;
     public float rotationMultiplyer;
 

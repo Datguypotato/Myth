@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
         lives--;
         SpriteRenderer rend = livesGo[lives].GetComponent<SpriteRenderer>();
         rend.sprite = spriteBoom;
+        //Animation anim = livesGo[lives].GetComponent<Animation>();
+        //anim.Play();
 
         yield return new WaitForSeconds(1);
         //actually lose health
@@ -113,5 +115,7 @@ public class GameManager : MonoBehaviour
         {
             livesGo[i].SetActive(false);
         }
+
+
     }
 }
