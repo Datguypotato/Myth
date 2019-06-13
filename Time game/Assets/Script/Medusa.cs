@@ -41,18 +41,18 @@ public class Medusa : MiniGame
 
             #region player
             //putting hands up
-            if (Input.GetKey(KeyCode.Space))
-            {
-                t += Time.deltaTime * lerpMultiply;
-            }
-            else
-            {
-                t -= Time.deltaTime * lerpMultiply;
-            }
+            //if (Input.GetKey(KeyCode.Space))
+            //{
+            //    t += Time.deltaTime * lerpMultiply;
+            //}
+            //else
+            //{
+            //    t -= Time.deltaTime * lerpMultiply;
+            //}
 
-            t = Mathf.Clamp(t, 0, 1);
-            desiredY = Mathf.Lerp(0.7f, 1.2f, t);
-            transform.position = new Vector3(transform.position.x, desiredY, -9);
+            //t = Mathf.Clamp(t, 0, 1);
+            //desiredY = Mathf.Lerp(0.7f, 1.2f, t);
+            //transform.position = new Vector3(transform.position.x, desiredY, -9);
             #endregion
 
             MedusaControl();
@@ -60,7 +60,6 @@ public class Medusa : MiniGame
             WinCheck();
 #endif
 
-#if UNITY_IOS
             #region Player
         if (Input.touchCount > 0)
         {
@@ -68,7 +67,7 @@ public class Medusa : MiniGame
         }
         else
         {
-            t += Time.deltaTime * lerpMultiply;
+            t -= Time.deltaTime * lerpMultiply;
         }
 
         t = Mathf.Clamp(t, 0, 1);
@@ -76,11 +75,10 @@ public class Medusa : MiniGame
         transform.position = new Vector3(transform.position.x, desiredY, -9);
             #endregion
 
-        MedusaControl();
+        //MedusaControl();
 
-        WinCheck();
+        //WinCheck();
 
-#endif
         }
     }
 

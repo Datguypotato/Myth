@@ -5,9 +5,12 @@ using UnityEngine;
 public class Arthur : MiniGame
 {
     public float progress;
+    public Transform focusPoint;
+    public Camera cam;
+
+    float addProgress = 0.05f;
 
     Rigidbody rb;
-    Camera cam;
     Animator anim;
 
     // Start is called before the first frame update
@@ -15,7 +18,6 @@ public class Arthur : MiniGame
     {
         //GetGm();
         Invoke("Lose", timeTillEnd);
-        cam = GameObject.FindObjectOfType<Camera>();
 
         rb = cam.GetComponent<Rigidbody>();
         anim = cam.GetComponent<Animator>();
@@ -24,12 +26,14 @@ public class Arthur : MiniGame
     // Update is called once per frame
     void Update()
     {
+        progress = Mathf.Clamp(progress, 0.1f, 1);
+
 #if UNITY_EDITOR
         if (!gameDone)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                progress += 0.05f;
+                progress += addProgress;
             }
             else
             {
@@ -37,28 +41,56 @@ public class Arthur : MiniGame
             }
 
             anim.SetFloat("AnimationTime", progress);
-            Mathf.Clamp(progress, 0, 1);
         }
-        else
+        else if (gameDone && playerWin == false)
         {
             //look at arthur
-            cam.transform.LookAt(gameObject.transform);
+            cam.transform.LookAt(focusPoint);
 
             anim.enabled = false;
             rb.useGravity = true;
         }
-
 #endif
 
-//#if UNITY_IOS
-        //if(Input.GetTouch())
-//#endif
 
-        
-        
-        if(progress > 1)
+        if (!gameDone)
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if(touch.phase == TouchPhase.Ended)
+                {
+                    progress += addProgress;
+                }
+                else
+                {
+                    progress -= Time.deltaTime / 10;
+                }
+            }
+            else
+            {
+                progress -= Time.deltaTime / 10;
+            }
+
+            anim.SetFloat("AnimationTime", progress);
+        }
+        else if(gameDone && playerWin == false)
+        {
+            //look at arthur
+            Debug.Log("0");
+            cam.transform.LookAt(focusPoint);
+
+            anim.enabled = false;
+            rb.useGravity = true;
+
+        }
+
+
+        if (progress > 1)
         {
             Win();
+            CancelInvoke();
         }
     }
 

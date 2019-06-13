@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> livesGo;
     public Sprite spriteBoom;
 
+    int sceneNumber;
     bool startGame;
     Scene activeLevel;
     Canvas mainmenuCanvas;
-
+    
 
 
     void Awake()
@@ -46,76 +47,101 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startGame && SceneManager.sceneCount == 1)
-        {
-            SceneManager.LoadSceneAsync(sceneNames[1], LoadSceneMode.Additive);
-            mainmenuCanvas.gameObject.SetActive(false);
-        }
 
         if(minigamescript == null)
         {
             minigamescript = GameObject.FindObjectOfType<MiniGame>();
         }
-
-        if (minigamescript != null && minigamescript.gameDone)
-        {
-            DG(minigamescript.playerWin);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            StartCoroutine(LoseLife());
-        }
-    }
-    //donegame
-    public void DG(bool playerwin)
-    {
-        if (playerwin)
-        {
-            score++;
-        }
         else
         {
-            lives--;
+            if (minigamescript.gameDone)
+            {
+                StartCoroutine(ChangelevelAndLife(minigamescript.playerWin));
+            }
+
         }
 
+        //testing
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    StartCoroutine(LoseLife());
+        //}
+    }
+    //donegame
+    //public void DG(bool playerwin)
+    //{
+    //    minigamescript = null;
+    //    SceneManager.UnloadSceneAsync(sceneNames[sceneNumber]);
+    //    mainmenuCanvas.gameObject.SetActive(true);
+
+    //    if (playerwin)
+    //    {
+    //        score++;
+    //    }
+    //    else
+    //    {
+    //        //StartCoroutine(Changelevel());
+    //    }
+    //}
+
+    //function for button
+    public async void ChangeScene()
+    {
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator ChangelevelAndLife(bool playerwin)
+    {
         minigamescript = null;
-        SceneManager.UnloadSceneAsync(sceneNames[1]);
-        mainmenuCanvas.gameObject.SetActive(true);
+        AsyncOperation ao = SceneManager.UnloadSceneAsync(sceneNames[sceneNumber]);
 
-    }
-    //startgame for button
-    public void SG()
-    {
-        startGame = true;
-    }
+        yield return ao;
+        yield return new WaitForSeconds(1);
 
-    IEnumerator LoseLife()
-    {
         //show all lives left
         for (int i = 0; i < livesGo.Count; i++)
         {
             livesGo[i].SetActive(true);
         }
         yield return new WaitForSeconds(0.5f);
-        //change sprite to losing health
-        lives--;
-        SpriteRenderer rend = livesGo[lives].GetComponent<SpriteRenderer>();
-        rend.sprite = spriteBoom;
-        //Animation anim = livesGo[lives].GetComponent<Animation>();
-        //anim.Play();
 
-        yield return new WaitForSeconds(1);
-        //actually lose health
-        livesGo[lives].GetComponent<SpriteRenderer>().sprite = null;
-        livesGo.Remove(livesGo[lives]);
-        yield return new WaitForSeconds(0.5f);
+        if (!playerwin)
+        {
+            //change sprite to losing health
+            lives--;
+
+            Animator anim = livesGo[lives].GetComponent<Animator>();
+            anim.enabled = true;
+            yield return new WaitForSeconds(1);
+
+            //actually lose health
+            anim.enabled = false;
+            livesGo[lives].GetComponent<SpriteRenderer>().sprite = null;
+            livesGo.Remove(livesGo[lives]);
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+
+        }
+
         //hide all lives left
         for (int i = 0; i < livesGo.Count; i++)
         {
             livesGo[i].SetActive(false);
         }
 
+        yield return new WaitForSeconds(1);
 
+        ChangeScene();
+    }
+
+    IEnumerator LoadScene()
+    {
+        mainmenuCanvas.gameObject.SetActive(false);
+        sceneNumber = Random.Range(0, sceneNames.Length);
+        AsyncOperation ao = SceneManager.LoadSceneAsync(sceneNames[sceneNumber], LoadSceneMode.Additive);
+        yield return ao;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneNames[sceneNumber]));
     }
 }

@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 92b92e0892bf10441abde347965b111c
+  - enabled: 1
     path: Assets/Scenes/Medusa.unity
     guid: 81ab7d21f4e1e48458a928341b368875
   - enabled: 1
     path: Assets/Scenes/Zeus.unity
     guid: 8706e2b904a80e84893bba8cf946e19c
+  - enabled: 1
+    path: Assets/Scenes/KingArthur.unity
+    guid: 98405ef636f114348bf677271ac32a51
   m_configObjects: {}

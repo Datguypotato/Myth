@@ -2438,10 +2438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameDone: 0
   playerWin: 0
-  timeTillEnd: 50
+  timeTillEnd: 10
   MinionsPrefab: {fileID: 8546354614177109490, guid: fa19735b8a04924458c36c5cc729c00a,
     type: 3}
-  amountMinions: 5
+  amountMinions: 3
 --- !u!4 &1387104108
 Transform:
   m_ObjectHideFlags: 0
@@ -2826,7 +2826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628666960}
   m_LocalRotation: {x: 0.4999996, y: -0, z: -0, w: 0.8660257}
-  m_LocalPosition: {x: 0, y: 12.195, z: -11.578}
+  m_LocalPosition: {x: 0, y: 9.64, z: -10.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

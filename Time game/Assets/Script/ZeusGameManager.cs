@@ -7,11 +7,10 @@ public class ZeusGameManager : MiniGame
     public GameObject MinionsPrefab;
     public int amountMinions;
     
-
     // Start is called before the first frame update
     void Start()
     {
-        //GetGm();
+        Invoke("Lose", timeTillEnd);
 
         for (int i = 0; i < amountMinions; i++)
         {
@@ -25,20 +24,12 @@ public class ZeusGameManager : MiniGame
     {
         if (!gameDone)
         {
-#if UNITY_EDITOR
             //player win
             if (GameObject.FindObjectOfType<ZeusMinions>() == null)
             {
                 Win();
             }
-            //playerlost
-            else if (timeTillEnd < Time.time)
-            {
-                Lose();
-            }
-#endif
+            //lose is a Invoke
         }
     }
-
-
 }
