@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager instance;
     public MiniGame minigamescript;
 
-    public string[] sceneNames;
     public bool gameDone;
     public int score;
-    public int lives;
+    public string[] sceneNames;
 
-    public List<GameObject> livesGo;
+    [Header("Lives variable")]
+
+    [Range(1, 3)]
+    public int lives;
     public Sprite spriteBoom;
+    public List<GameObject> livesGo;
 
     int sceneNumber;
     bool startGame;
@@ -85,9 +89,16 @@ public class GameManager : MonoBehaviour
     //}
 
     //function for button
-    public async void ChangeScene()
+    public void ChangeScene()
     {
+        lives = 3;
+
         StartCoroutine(LoadScene());
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator ChangelevelAndLife(bool playerwin)
@@ -105,7 +116,7 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
 
-        if (!playerwin)
+        if (!playerwin && lives > 0)
         {
             //change sprite to losing health
             lives--;
@@ -120,20 +131,27 @@ public class GameManager : MonoBehaviour
             livesGo.Remove(livesGo[lives]);
             yield return new WaitForSeconds(0.5f);
         }
-        else
-        {
-
-        }
 
         //hide all lives left
-        for (int i = 0; i < livesGo.Count; i++)
+        if(livesGo != null)
         {
-            livesGo[i].SetActive(false);
+            for (int i = 0; i < livesGo.Count; i++)
+            {
+                livesGo[i].SetActive(false);
+            }
         }
 
         yield return new WaitForSeconds(1);
 
-        ChangeScene();
+        if(lives > 0)
+        {
+            ChangeScene();
+        }
+        else
+        {
+            Debug.Log("Done Game");
+            mainmenuCanvas.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator LoadScene()
