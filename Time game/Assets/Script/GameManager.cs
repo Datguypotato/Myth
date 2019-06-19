@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public int score;
     public string[] sceneNames;
 
+    public GameObject mainmenuButton;
+    public GameObject[] Arrows;
+    public GameObject storyBoard;
+
     [Header("Lives variable")]
 
     [Range(1, 3)]
@@ -65,28 +69,8 @@ public class GameManager : MonoBehaviour
 
         }
 
-        //testing
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    StartCoroutine(LoseLife());
-        //}
     }
-    //donegame
-    //public void DG(bool playerwin)
-    //{
-    //    minigamescript = null;
-    //    SceneManager.UnloadSceneAsync(sceneNames[sceneNumber]);
-    //    mainmenuCanvas.gameObject.SetActive(true);
 
-    //    if (playerwin)
-    //    {
-    //        score++;
-    //    }
-    //    else
-    //    {
-    //        //StartCoroutine(Changelevel());
-    //    }
-    //}
 
     //function for button
     public void ChangeScene()
@@ -94,6 +78,14 @@ public class GameManager : MonoBehaviour
         lives = 3;
 
         StartCoroutine(LoadScene());
+    }
+
+    public void Story()
+    {
+        Arrows[0].SetActive(!Arrows[0].activeInHierarchy);
+        Arrows[1].SetActive(!Arrows[1].activeInHierarchy);
+        storyBoard.SetActive(!storyBoard.activeInHierarchy);
+        mainmenuButton.SetActive(!mainmenuButton.activeInHierarchy);
     }
 
     public void QuitGame()
