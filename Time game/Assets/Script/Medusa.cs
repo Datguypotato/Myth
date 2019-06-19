@@ -38,29 +38,29 @@ public class Medusa : MiniGame
         if (!gameDone)
         {
 #if UNITY_EDITOR
-
-            #region player
             //putting hands up
-            //if (Input.GetKey(KeyCode.Space))
-            //{
-            //    t += Time.deltaTime * lerpMultiply;
-            //}
-            //else
-            //{
-            //    t -= Time.deltaTime * lerpMultiply;
-            //}
+            #region player
 
-            //t = Mathf.Clamp(t, 0, 1);
-            //desiredY = Mathf.Lerp(0.7f, 1.2f, t);
-            //transform.position = new Vector3(transform.position.x, desiredY, -9);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                t += Time.deltaTime * lerpMultiply;
+            }
+            else
+            {
+                t -= Time.deltaTime * lerpMultiply;
+            }
+
+            t = Mathf.Clamp(t, 0, 1);
+            desiredY = Mathf.Lerp(0.7f, 2, t);
+            transform.position = new Vector3(transform.position.x, desiredY, -9);
             #endregion
 
             MedusaControl();
 
             WinCheck();
 #endif
-
-            #region Player
+#if UNITY_IOS
+#region Player
         if (Input.touchCount > 0)
         {
             t += Time.deltaTime * lerpMultiply;
@@ -73,17 +73,20 @@ public class Medusa : MiniGame
         t = Mathf.Clamp(t, 0, 1);
         desiredY = Mathf.Lerp(0.7f, 1.2f, t);
         transform.position = new Vector3(transform.position.x, desiredY, -9);
-            #endregion
+#endregion
 
-        //MedusaControl();
+            MedusaControl();
 
-        //WinCheck();
+            WinCheck();
+
+#endif
+        }
 
         }
-    }
 
-    //TODO Make it so the IEnumerator change the text
-    IEnumerator BlinkRed()
+
+        //TODO Make it so the IEnumerator change the text
+        IEnumerator BlinkRed()
     {
         //setup for player
         medusaLooking = true;
