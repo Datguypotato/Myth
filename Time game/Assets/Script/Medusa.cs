@@ -11,10 +11,13 @@ public class Medusa : MiniGame
     [Header("Players")]
     public float t;
     public float desiredY;
+    public Material stoneMat;
+    public MeshRenderer[] hands;
 
     [Header("Medusa")]
     public GameObject medusaGo;
     public float lookatTime;
+    public AudioSource medusaFx;
 
     float playerlookatTime;
     public bool medusaLooking;
@@ -54,13 +57,10 @@ public class Medusa : MiniGame
             desiredY = Mathf.Lerp(0.7f, 2, t);
             transform.position = new Vector3(transform.position.x, desiredY, -9);
             #endregion
-
-            MedusaControl();
-
-            WinCheck();
 #endif
+
 #if UNITY_IOS
-#region Player
+            #region Player
         if (Input.touchCount > 0)
         {
             t += Time.deltaTime * lerpMultiply;
@@ -73,13 +73,13 @@ public class Medusa : MiniGame
         t = Mathf.Clamp(t, 0, 1);
         desiredY = Mathf.Lerp(0.7f, 1.2f, t);
         transform.position = new Vector3(transform.position.x, desiredY, -9);
-#endregion
+            #endregion
+#endif
+
 
             MedusaControl();
 
             WinCheck();
-
-#endif
         }
 
         }
@@ -92,6 +92,7 @@ public class Medusa : MiniGame
         medusaLooking = true;
         Renderer rend = medusaGo.GetComponent<Renderer>();
         rend.material.color = Color.red;
+        medusaFx.PlayDelayed(0.2f);
         yield return new WaitForSeconds(1);
         //meduslooking
         rend.material.color = Color.green;
@@ -123,6 +124,8 @@ public class Medusa : MiniGame
         //lose
         if (!medusaLooking && t > .8 && playerlookatTime > Time.time || medusaLooking && t < .8)
         {
+            hands[0].material = stoneMat;
+            hands[1].material = stoneMat;
             Lose();
         }
 

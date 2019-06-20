@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: fcfcff61f17c9a9469228796e6d7e106
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Sword_Pull:beard
+    100004: Sword_Pull:character_prefab_mesh
+    100006: Sword_Pull:crown
+    100008: Sword_Pull:Head
+    100010: Sword_Pull:Hips
+    100012: Sword_Pull:LeftArm
+    100014: Sword_Pull:LeftFoot
+    100016: Sword_Pull:LeftForeArm
+    100018: Sword_Pull:LeftHand
+    100020: Sword_Pull:LeftLeg
+    100022: Sword_Pull:LeftShoulder
+    100024: Sword_Pull:LeftToeBase
+    100026: Sword_Pull:LeftUpLeg
+    100028: Sword_Pull:moustache
+    100030: Sword_Pull:Neck
+    100032: Sword_Pull:RightArm
+    100034: Sword_Pull:RightFoot
+    100036: Sword_Pull:RightForeArm
+    100038: Sword_Pull:RightHand
+    100040: Sword_Pull:RightLeg
+    100042: Sword_Pull:RightShoulder
+    100044: Sword_Pull:RightToeBase
+    100046: Sword_Pull:RightUpLeg
+    100048: Sword_Pull:Spine
+    100050: Sword_Pull:Spine1
+    100052: Sword_Pull:Spine2
+    100054: Sword_Pull:stone
+    100056: Sword_Pull:sword
+    400000: //RootNode
+    400002: Sword_Pull:beard
+    400004: Sword_Pull:character_prefab_mesh
+    400006: Sword_Pull:crown
+    400008: Sword_Pull:Head
+    400010: Sword_Pull:Hips
+    400012: Sword_Pull:LeftArm
+    400014: Sword_Pull:LeftFoot
+    400016: Sword_Pull:LeftForeArm
+    400018: Sword_Pull:LeftHand
+    400020: Sword_Pull:LeftLeg
+    400022: Sword_Pull:LeftShoulder
+    400024: Sword_Pull:LeftToeBase
+    400026: Sword_Pull:LeftUpLeg
+    400028: Sword_Pull:moustache
+    400030: Sword_Pull:Neck
+    400032: Sword_Pull:RightArm
+    400034: Sword_Pull:RightFoot
+    400036: Sword_Pull:RightForeArm
+    400038: Sword_Pull:RightHand
+    400040: Sword_Pull:RightLeg
+    400042: Sword_Pull:RightShoulder
+    400044: Sword_Pull:RightToeBase
+    400046: Sword_Pull:RightUpLeg
+    400048: Sword_Pull:Spine
+    400050: Sword_Pull:Spine1
+    400052: Sword_Pull:Spine2
+    400054: Sword_Pull:stone
+    400056: Sword_Pull:sword
+    2100000: Sword_Pull_lambert2
+    2100002: lambert1
+    2100004: lambert2
+    2300000: Sword_Pull:stone
+    2300002: Sword_Pull:sword
+    3300000: Sword_Pull:stone
+    3300002: Sword_Pull:sword
+    4300000: Sword_Pull:character_prefab_mesh
+    4300002: Sword_Pull:crown
+    4300004: Sword_Pull:moustache
+    4300006: Sword_Pull:beard
+    4300008: Sword_Pull:sword
+    4300010: Sword_Pull:stone
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Sword_Pull:beard
+    13700002: Sword_Pull:character_prefab_mesh
+    13700004: Sword_Pull:crown
+    13700006: Sword_Pull:moustache
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

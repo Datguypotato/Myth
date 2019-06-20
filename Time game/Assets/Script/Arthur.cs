@@ -7,11 +7,16 @@ public class Arthur : MiniGame
     public float progress;
     public Transform focusPoint;
     public Camera cam;
+    public AudioSource arthurFx;
 
-    float addProgress = 0.05f;
+    public GameObject winAnimation;
+    public GameObject[] arhur;
+
+    float addProgress = 0.08f;
 
     Rigidbody rb;
-    Animator anim;
+    Animator animCam;
+    Animator animArthur;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +25,8 @@ public class Arthur : MiniGame
         Invoke("Lose", timeTillEnd);
 
         rb = cam.GetComponent<Rigidbody>();
-        anim = cam.GetComponent<Animator>();
+        animCam = cam.GetComponent<Animator>();
+        animArthur = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,18 +46,19 @@ public class Arthur : MiniGame
                 progress -= Time.deltaTime / 10;
             }
 
-            anim.SetFloat("AnimationTime", progress);
+
+            animArthur.SetFloat("AnimProgress", progress);
+            animCam.SetFloat("AnimationTime", progress);
         }
         else if (gameDone && playerWin == false)
         {
             //look at arthur
             cam.transform.LookAt(focusPoint);
 
-            anim.enabled = false;
+            animCam.enabled = false;
             rb.useGravity = true;
         }
 #endif
-
 
         if (!gameDone)
         {
@@ -73,7 +80,7 @@ public class Arthur : MiniGame
                 progress -= Time.deltaTime / 10;
             }
 
-            anim.SetFloat("AnimationTime", progress);
+            animCam.SetFloat("AnimationTime", progress);
         }
         else if(gameDone && playerWin == false)
         {
@@ -81,7 +88,7 @@ public class Arthur : MiniGame
             Debug.Log("0");
             cam.transform.LookAt(focusPoint);
 
-            anim.enabled = false;
+            animCam.enabled = false;
             rb.useGravity = true;
 
         }
@@ -91,6 +98,16 @@ public class Arthur : MiniGame
         {
             Win();
             CancelInvoke();
+            arthurFx.Play();
+            int chance = Random.Range(0, 1);
+            if(chance == 1 || chance == 0)
+            {
+                for (int i = 0; i < arhur.Length; i++)
+                {
+                    arhur[i].SetActive(false);
+                }
+                winAnimation.SetActive(true);
+            }
         }
     }
 

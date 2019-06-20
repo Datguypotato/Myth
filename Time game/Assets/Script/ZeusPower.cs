@@ -13,7 +13,7 @@ public class ZeusPower : MonoBehaviour
 
     public GameObject thunderPrefab;
     public GameObject thunderHit;
-    
+    public AudioSource zeusFx;
     public float timeBetweenLightning;
 
     float lightningCooldown;
@@ -24,6 +24,7 @@ public class ZeusPower : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0) && lightningCooldown < Time.time)
         {
+            zeusFx.PlayOneShot(zeusFx.clip);
             Ray ray = gameObject.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             lightningCooldown = Time.time + timeBetweenLightning;
 
