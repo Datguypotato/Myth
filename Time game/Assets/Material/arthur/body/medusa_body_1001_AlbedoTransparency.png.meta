@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 56bbbfa898f0f1e4a94f5c3fdc8911c2
+=======
+guid: 58137c275bf4eba4685992f114bf4d11
+>>>>>>> master
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
