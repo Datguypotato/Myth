@@ -7,12 +7,18 @@ public class Arthur : MiniGame
     public float progress;
     public Transform focusPoint;
     public Camera cam;
-    public AudioSource arthurFx;
+
+    [Space(10)]
 
     public GameObject winAnimation;
     public GameObject[] arhur;
 
     float addProgress = 0.08f;
+
+    [Header("Sound")]
+    AudioSource soundEffect;
+    public AudioClip tadaa, drawSword, Grunt;
+
 
     Rigidbody rb;
     Animator animCam;
@@ -27,6 +33,7 @@ public class Arthur : MiniGame
         rb = cam.GetComponent<Rigidbody>();
         animCam = cam.GetComponent<Animator>();
         animArthur = GetComponent<Animator>();
+        soundEffect = GameObject.FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -98,7 +105,6 @@ public class Arthur : MiniGame
         {
             Win();
             CancelInvoke();
-            arthurFx.Play();
             int chance = Random.Range(0, 1);
             if(chance == 1 || chance == 0)
             {
@@ -108,9 +114,12 @@ public class Arthur : MiniGame
                 }
                 winAnimation.SetActive(true);
             }
+
+            soundEffect.PlayOneShot(tadaa);
+            soundEffect.PlayOneShot(drawSword);
         }
+
     }
 
-    //called by start
-
+    
 }

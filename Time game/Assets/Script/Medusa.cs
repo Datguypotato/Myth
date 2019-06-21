@@ -16,8 +16,11 @@ public class Medusa : MiniGame
 
     [Header("Medusa")]
     public GameObject medusaGo;
+    Animator medusaAnim;
     public float lookatTime;
+
     public AudioSource medusaFx;
+    public AudioClip turnToStone;
 
     float playerlookatTime;
     public bool medusaLooking;
@@ -33,6 +36,7 @@ public class Medusa : MiniGame
 
         lookatTime = Random.Range(2, 6) + Time.time;
         playerlookatTime = lookatTime - 1;
+        medusaAnim = medusaGo.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -90,12 +94,13 @@ public class Medusa : MiniGame
     {
         //setup for player
         medusaLooking = true;
-        Renderer rend = medusaGo.GetComponent<Renderer>();
-        rend.material.color = Color.red;
+        //Renderer rend = medusaGo.GetComponent<Renderer>();
+        //rend.material.color = Color.red;
+        medusaAnim.SetBool("StartLook", true);
         medusaFx.PlayDelayed(0.2f);
         yield return new WaitForSeconds(1);
         //meduslooking
-        rend.material.color = Color.green;
+        //rend.material.color = Color.green;
         medusaLooking = false;
         tapText.text = "";
     }
@@ -126,6 +131,8 @@ public class Medusa : MiniGame
         {
             hands[0].material = stoneMat;
             hands[1].material = stoneMat;
+            medusaFx.PlayOneShot(turnToStone);
+
             Lose();
         }
 

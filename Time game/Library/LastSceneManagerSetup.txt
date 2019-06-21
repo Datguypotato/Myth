@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Zeus.unity
+- path: Assets/Scenes/Medusa.unity
   isLoaded: 1
   isActive: 1
